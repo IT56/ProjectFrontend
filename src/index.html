@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+   <!-- 
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/jquery-ui.css">
+       <link href="css/jquery-ui.css" rel="stylesheet"> -->
+
+        <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
+        <script src="js/datepicker.min.js"></script>
+    
+</head>
+
+<body>
+
+	<section class="form_registration"> 
+				<div class="container">
+<!-- 				<form name="test" method="post" action="form1.php"> -->
+
+  			<div class = "label_one">
+  			<label>	TEXT FILED </label><br>
+  				 	
+  			<!-- 		<label class = "label_two">
+      	 DEFAULT
+    	<br> -->
+    </div>
+    <br>
+        <input type="email" id="email" name="email" placeholder="Email">
+        	<br>
+
+    	<div class = "label_one">
+  				 <label>TEXT FILED </label>div<br>
+					</div>
+  				<!-- 	<label class = "label_two">
+      	 HOVER/FOCUS
+      	 </label> -->
+      	 <br>
+        <input type="text" name="text filed" placeholder="This is pretty awesome">
+						<br>
+
+    <div class = "label_one">
+    	<label>DROPRDOWN </label> <br>
+    </div>
+    	<!-- <label class = "label_two">
+      	 DEFAULT
+      	</label> -->
+      	<br>
+			<input class = "list_one" type = "text" list = "guests" placeholder="Сколько гостей"> 		
+				<datalist id = "guests"> <!--Список предопределенных вариантов для ввода-->
+					 <option value = "1" label = "Один">
+					 <option value = "2" label = "Два">
+					 <option value = "3" label = "Три">
+					 <option value = "4" label = "Четыре">
+					 <option value = "5" label = "Пять">
+				</datalist>	
+					<br>
+
+  			<div class = "label_one">
+  				 <label>MASKED TEXT FILED </label><br>
+  				</div>
+  				<!-- 	<label class = "label_two">
+      	 DEFAULT
+								</label> -->
+								<br>
+        <input type="date" id="date" name="date" placeholder="ДД.ММ.ГГ">
+							<br>
+
+
+          
+        <!-- ПРИБЫТИЕ -->
+				<div class = "label_one">
+  				 <label>ПРИБЫТИЕ</label>
+  				 <br>
+            <input class="datepicker-here"
+            type="date" 
+            list = "arrival" 
+            data-range="true" 
+            data-multiple-dates-separator=" - " 
+            placeholder="ДД.ММ.ГГ">
+            
+         <!--    onselect="myFunction()" -->
+            <!-- data-range="true" - выбор диапозона -->
+            <!-- data-multiple-dates-separator=" - " - разделитель-->
+							<br>
+            </div>
+            <br>
+
+
+          <!--   ВЫЕЗД -->
+			<div class = "label_one">
+  				 <label>ВЫЕЗД</label> 
+  				 <br>
+						<input 
+            class="datepicker-here" 
+            id="dat"
+            type="date" 
+            list = "arrival" 
+            data-range="true" 
+            data-multiple-dates-separator=" - " 
+            placeholder="ДД.ММ.ГГ">
+						
+							<br>
+              </div>
+            </div>
+		</section>
+
+ <script>
+
+$('.datepicker-here').datepicker({ 
+  onSelect: function (fd, d, picker) { 
+    $(".datepicker-here").val(fd.split("-")[0]);
+    $("#dat").val(fd.split("-")[1]);
+  }
+    
+});
+
+$('.datepicker-here').datepicker({
+    clearButton: true
+})
+
+
+</script>
+
+</body>
+
+</html>

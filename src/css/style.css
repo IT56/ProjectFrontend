@@ -1,0 +1,50 @@
+/*Font family*/
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), local('Montserrat-Regular'), url('../fonts/montserrat.woff2') format('woff2'), url('../fonts/montserrat.woff') format('woff'), url('../fonts/montserrat.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url('../fonts/montserratbold.woff2') format('woff2'), url('../fonts/montserratbold.woff') format('woff'), url('../fonts/montserratbold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+/*Colors*/
+.container {
+  margin-top: 10rem;
+}
+.label_one {
+  font-family: 'Montserrat';
+  display: inline-block;
+  margin-top: 2rem;
+  font-style: bold;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 15px;
+  text-align: left;
+  color: #1F2041;
+}
+.label_two {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: right;
+  border: 2px solid red;
+}
+input {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+}
+.ui-datepicker-header {
+  color: #c7c7d0;
+}
+.ui-datepicker-content {
+  color: #c7c7d0;
+}
