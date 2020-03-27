@@ -5,126 +5,73 @@
 	<title>Document</title>
 	 <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-   <!-- 
-      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/jquery-ui.css">
-       <link href="css/jquery-ui.css" rel="stylesheet"> -->
-
+    <script src="js/script_one.js"></script>
+ 
         <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
-        <script src="js/datepicker.min.js"></script>
-    
-</head>
-
+        <script src="js/datepicker.min.js"></script>  
+			</head>
 <body>
 
-	<section class="form_registration"> 
-				<div class="container">
-<!-- 				<form name="test" method="post" action="form1.php"> -->
-
-  			<div class = "label_one">
-  			<label>	TEXT FILED </label><br>
-  				 	
-  			<!-- 		<label class = "label_two">
-      	 DEFAULT
-    	<br> -->
-    </div>
-    <br>
-        <input type="email" id="email" name="email" placeholder="Email">
-        	<br>
-
-    	<div class = "label_one">
-  				 <label>TEXT FILED </label>div<br>
-					</div>
-  				<!-- 	<label class = "label_two">
-      	 HOVER/FOCUS
-      	 </label> -->
-      	 <br>
-        <input type="text" name="text filed" placeholder="This is pretty awesome">
-						<br>
-
-    <div class = "label_one">
-    	<label>DROPRDOWN </label> <br>
-    </div>
-    	<!-- <label class = "label_two">
-      	 DEFAULT
-      	</label> -->
-      	<br>
-			<input class = "list_one" type = "text" list = "guests" placeholder="Сколько гостей"> 		
-				<datalist id = "guests"> <!--Список предопределенных вариантов для ввода-->
-					 <option value = "1" label = "Один">
-					 <option value = "2" label = "Два">
-					 <option value = "3" label = "Три">
-					 <option value = "4" label = "Четыре">
-					 <option value = "5" label = "Пять">
-				</datalist>	
-					<br>
-
-  			<div class = "label_one">
-  				 <label>MASKED TEXT FILED </label><br>
-  				</div>
-  				<!-- 	<label class = "label_two">
-      	 DEFAULT
-								</label> -->
-								<br>
-        <input type="date" id="date" name="date" placeholder="ДД.ММ.ГГ">
-							<br>
-
-
-          
-        <!-- ПРИБЫТИЕ -->
-				<div class = "label_one">
-  				 <label>ПРИБЫТИЕ</label>
-  				 <br>
-            <input class="datepicker-here"
+	<section class="form_search"> 
+			<div class="container">
+				<form name="test" method="post" action="form1.php">
+							<h1 class =	"header_one">Найдем номера под<br>ваши пожелания</h1>
+             
+             <!-- ПРИБЫТИЕ -->
+   <div class = "form-group inner-addon">
+				<div class="input">
+  			<label>ПРИБЫТИЕ
+  				<br>  
+							<i class="fas fa-angle-down"></i>
+        <input class="datepicker-here"
             type="date" 
             list = "arrival" 
             data-range="true" 
             data-multiple-dates-separator=" - " 
-            placeholder="ДД.ММ.ГГ">
-            
-         <!--    onselect="myFunction()" -->
-            <!-- data-range="true" - выбор диапозона -->
-            <!-- data-multiple-dates-separator=" - " - разделитель-->
+            placeholder="ДД.ММ.ГГ">  
+            </label> 
 							<br>
-            </div>
-            <br>
-
+    </div>
 
           <!--   ВЫЕЗД -->
-			<div class = "label_one">
-  				 <label>ВЫЕЗД</label> 
-  				 <br>
-						<input 
-            class="datepicker-here" 
+			<div class = "input">
+  		<label>ВЫЕЗД</label> 
+  			<br>
+  				<i class="fas fa-angle-down"></i>
+							<input class="datepicker-here" 
             id="dat"
             type="date" 
             list = "arrival" 
             data-range="true" 
             data-multiple-dates-separator=" - " 
             placeholder="ДД.ММ.ГГ">
-						
 							<br>
-              </div>
-            </div>
-		</section>
+  		</div>
+  	</div>
+ 	</form>
+	</div>
 
  <script>
 
-$('.datepicker-here').datepicker({ 
-  onSelect: function (fd, d, picker) { 
-    $(".datepicker-here").val(fd.split("-")[0]);
-    $("#dat").val(fd.split("-")[1]);
-  }
-    
+$('.datepicker-here').click(function(){
+    $('.fas').hide();
 });
 
 $('.datepicker-here').datepicker({
+  onSelect: function (fd, d, picker) { 
+    $(".datepicker-here").val(fd.split("-")[0]);
+    $("#dat").val(fd.split("-")[1]);
+  }   
+});
+
+
+$('.datepicker-here').datepicker({
     clearButton: true
-})
+});
 
-
+  
 </script>
-
 </body>
-
 </html>

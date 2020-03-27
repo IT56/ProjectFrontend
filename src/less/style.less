@@ -1,3 +1,4 @@
+
 /*Font family*/
 
 @font-face {
@@ -19,13 +20,35 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Quicksand';
+    src: local('Quicksand Regular'), 
+    local('Quicksand-Regular'), 
+    url('../fonts/quicksandregular.woff2') format('woff2'), 
+    url('../fonts/quicksandregular.woff') format('woff'), 
+    url('../fonts/quicksandregular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: local('Quicksand Bold'), local('Quicksand-Bold'), 
+    url('../fonts/quicksandbold.woff2') format('woff2'), 
+				url('../fonts/quicksandbold.woff') format('woff'), 
+				url('../fonts/quicksandbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 
 .mont(){
 	 font-family: 'Montserrat';
 }
 
-
-
+.quick(){
+	font-family: 'Quicksand';
+}
 
 /*Colors*/
 
@@ -39,49 +62,66 @@
 
 
 
+
 .container{
 	margin-top: 10rem;
 }
 
-.label_one{
+.header_one{
+ .quick();
+ margin-bottom: 2rem;
+ font-weight: bold;
+ font-size: 2.4rem;
+ line-height: 2.8rem;
+ color:@dark100;
+ 
+}
+
+.input{ //название инпутов
 	.mont();
 	display: inline-block;
-	margin-top:2rem;
-	
-	font-style: bold;
+	margin-right: 2rem;
+	font-style: normal;
 	font-weight: bold;
 	font-size: 1.2rem;
-	line-height: 15px;
+	line-height: 1.5rem;
 	text-align: left;
-	color: #1F2041;
+	color:@dark100;
 }
+ 
 
-.label_two{
+input{ //инпуты
 	.mont();
-	
+	margin-top: 0.5rem;
+	height: 4.4rem;
+	width: 15rem;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 12px;
-	line-height: 15px;
-	text-align: right;
-	border: 2px solid red;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	border: 1px solid @dark25;
+	border-radius: 0.4rem;
+
 }
 
-input{
-	.mont();
-	font-style: normal;
-	font-weight: normal;
-	font-size: 14px;
-	line-height: 18px;
-}
+ .datepicker-here{
+ 	
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 1.4rem;
+line-height: 1.8rem;
+ }
 
-// .odd { 
-// 	background-color: green; 
-// }
 
-.ui-datepicker-header{
-	color:#c7c7d0;
-}
-.ui-datepicker-content{
-	color: #c7c7d0;
-}
+ .fas{
+ 	position:absolute;
+ 	margin-left: 12rem;
+ 	margin-top: 1.5rem;
+ 	font-size: 2.4rem;
+ 	color: @dark50;
+
+ }
+
+
+
