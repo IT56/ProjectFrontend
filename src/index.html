@@ -5,73 +5,208 @@
 	<title>Document</title>
 	 <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+     <!-- стиль выпадающий список гостей -->
+     <link href="css/style_list.css" rel="stylesheet">
+      <!-- подключаем иконки -->
     	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="js/script_one.js"></script>
- 
+       <!-- 	библиотека JQuery -->
+       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> <!-- подключаем стиль календарь -->
         <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
-        <script src="js/datepicker.min.js"></script>  
-			</head>
+         <!-- плагин календарь -->
+         <script src="js/datepicker.min.js"></script>  
+</head>
+
 <body>
 
 	<section class="form_search"> 
 			<div class="container">
 				<form name="test" method="post" action="form1.php">
 							<h1 class =	"header_one">Найдем номера под<br>ваши пожелания</h1>
-             
              <!-- ПРИБЫТИЕ -->
-   <div class = "form-group inner-addon">
-				<div class="input">
-  			<label>ПРИБЫТИЕ
-  				<br>  
-							<i class="fas fa-angle-down"></i>
-        <input class="datepicker-here"
-            type="date" 
-            list = "arrival" 
-            data-range="true" 
-            data-multiple-dates-separator=" - " 
-            placeholder="ДД.ММ.ГГ">  
+        <div class = "form-group inner-addon">
+		      <div class="input">
+  		      <label>ПРИБЫТИЕ
+  			     <br>  
+				      <i class="fas fa-angle-down"></i>
+                <input class="datepicker-here"
+                type="date" 
+                list = "arrival" 
+                data-range="true" 
+                data-multiple-dates-separator=" - " 
+                placeholder="ДД.ММ.ГГ">  
             </label> 
-							<br>
-    </div>
-
+				  <br>
+        </div>
           <!--   ВЫЕЗД -->
-			<div class = "input">
-  		<label>ВЫЕЗД</label> 
-  			<br>
-  				<i class="fas fa-angle-down"></i>
-							<input class="datepicker-here" 
-            id="dat"
-            type="date" 
-            list = "arrival" 
-            data-range="true" 
-            data-multiple-dates-separator=" - " 
-            placeholder="ДД.ММ.ГГ">
-							<br>
-  		</div>
-  	</div>
- 	</form>
-	</div>
+	       <div class = "input">
+          <label>ВЫЕЗД</label> 
+  		      <br>
+  			     <i class="fas fa-angle-down"></i>
+					     <input class="datepicker-here" 
+              id="dat"
+              type="date" 
+              list = "arrival" 
+              data-range="true" 
+              data-multiple-dates-separator=" - " 
+              placeholder="ДД.ММ.ГГ">
+			       <br>
+          </div>
+        </div>
+ 	      </form>
+      </div>
+ </section>
 
- <script>
+<section>
+  <div class="container">
+      <div class="wrapper-demo">
+        <div id="dd" class="wrapper-dropdown-4">
+          <label id = "sum"> Сколько гостей</label>
+          <ul class="dropdown">
+            <li><input class = "input_guests" type="submit" value="0" > 
+            <span class="down">-</span> <span class="up">+</span> 
+            <label for="el-1"> ВЗРОСЛЫЕ</label></li>
 
-$('.datepicker-here').click(function(){
-    $('.fas').hide();
-});
+            <li><input class = "input_guests" type="submit" value="0" > 
+            <span class="down">-</span> <span class="up">+</span> 
+            <label for="el-2">ДЕТИ</label></li>
 
-$('.datepicker-here').datepicker({
-  onSelect: function (fd, d, picker) { 
-    $(".datepicker-here").val(fd.split("-")[0]);
-    $("#dat").val(fd.split("-")[1]);
-  }   
-});
+            <li><input class = "input_guests" type="submit" value="0" > 
+            <span class="down">-</span> <span class="up">+</span> 
+            <label for="el-3">МЛАДЕНЦЫ</label></li>
+            <button class="button">Заказать</button>
+          </ul>
 
+        </div>
+      ​</div>
+    </div>
+	</section>
+    
 
-$('.datepicker-here').datepicker({
-    clearButton: true
-});
+    <script>
+      
+      function DropDown(el) {
+        this.dd = el;
+        this.opts = this.dd.find('ul.dropdown > li');
+        this.val = []; //хранить значение
+        this.index = []; //хранить индекс
+        this.initEvents(); //initEvents() - получить эл. кот. вызвал обработчик события
+      }
+      DropDown.prototype = {
+        initEvents : function() {
+          var obj = this;
 
+          obj.dd.on('click', function(event){  //переменная event будет содержать объект event
+            $(this).toggleClass('active');
+            event.stopPropagation();
+            console.log(dd.tagName);
+
+          });
+
+          obj.opts.children('label').on('click',function(event){
+            var opt = $(this).parent(),
+              chbox = opt.children('input'),
+              val = chbox.val(),
+              idx = opt.index();
+
+            // ($.inArray(val, obj.val) !== -1) ? obj.val.splice( $.inArray(val, obj.val), 1 ) : obj.val.push( val );
+            // //если условие до ? истино тогда делается obj.val.splice( $.inArray(val, obj.val), 1 ) в противном случае obj.val.push( val );
+            // ($.inArray(idx, obj.index) !== -1) ? obj.index.splice( $.inArray(idx, obj.index), 1 ) : obj.index.push( idx );
+
+            // document.getElementById('sum').innerHTML = val;
+
+            console.log(val, obj.val);
+
+            // console.log(idx, obj.val);
+
+          });
+        },
+        getValue : function() {
+          return this.val;
+          
+        },
+        getIndex : function() {
+          return this.index;
+        
+        }
+      }
   
+      $(function() {
+
+        var dd = new DropDown( $('#dd') );
+
+        $(document).click(function() {
+
+          // all dropdowns
+
+          $('.wrapper-dropdown-4').removeClass('active');
+
+        });
+
+      });
+
+  </script>
+
+     <script>
+    $(document).ready(function() {
+      $('.down').click(function () {
+      var $input = $(this).parent().find('.input_guests');
+      var count = parseInt($input.val()) - 1; //parseInt принимает строку в качестве аргумента и возвращает целое число
+    
+     
+
+      count = count < 0 ? 0 : count; //если полученное значение меньше 1 то 1, если больше то полученное значение
+      $input.val(count);
+      $input.change();
+
+
+      // document.getElementById('sum').textContent = count + count;
+      console.log(count);
+      return false;
+    });
+    $('.up').click(function () {
+      var $input = $(this).parent().find('.input_guests');
+      $input.val(parseInt($input.val()) + 1);
+      $input.change();
+      
+
+      return false;
+    });
+  });
 </script>
+
+
+    <script>
+      (function() {
+        [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {  
+          new SelectFx(el);
+        } );
+      })();
+    </script>
+
+
+    <script>/*исчезновение иконки*/
+      $('.datepicker-here').click(function(){ 
+        $('.fas').hide();
+      });
+    </script>
+
+    <script> /*календарь*/
+      $('.datepicker-here').datepicker({ 
+        onSelect: function (fd, d, picker) { 
+           $(".datepicker-here").val(fd.split("-")[0]);
+              $("#dat").val(fd.split("-")[1]);
+        }   
+      });
+    </script>
+
+    <script> /*кнопка "очистить"*/
+      $('.datepicker-here').datepicker({ 
+        clearButton: true
+      });
+    </script>
+
+   
+
+
 </body>
 </html>
